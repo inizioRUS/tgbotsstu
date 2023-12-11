@@ -11,4 +11,4 @@ class Voice(SqlAlchemyBase):
     file_id = sqlalchemy.Column(sqlalchemy.String)
     user_name = sqlalchemy.Column(sqlalchemy.String)
     date = sqlalchemy.Column(sqlalchemy.DateTime)
-    rates = orm.relation("Rate", back_populates='voice', lazy='subquery')
+    rates = orm.relationship("Rate", back_populates='voice', lazy='subquery')

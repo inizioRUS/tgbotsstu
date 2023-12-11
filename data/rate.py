@@ -12,4 +12,4 @@ class Rate(SqlAlchemyBase):
     user_name = sqlalchemy.Column(sqlalchemy.String)
     mark = sqlalchemy.Column(sqlalchemy.Integer)
     voice_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("voices.id"))
-    voice = orm.relation('Voice')
+    voice = orm.relationship('Voice')

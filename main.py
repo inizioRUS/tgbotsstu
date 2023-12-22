@@ -12,12 +12,12 @@ Basic Echobot example, repeats messages.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
-
+import os
 from data import db_session
 from data.voices import Voice
 from data.rate import Rate
 import logging
-from config import *
+#from config import *
 from telegram import ForceReply, Update, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, \
     ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, CallbackQueryHandler, Filters
@@ -126,7 +126,7 @@ def main() -> None:
     db_session.global_init()
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Updater(TOKEN)
+    application = Updater(os.environ["TOKEN"])
     # on different commands - answer in Telegram
     application.dispatcher.add_handler(CommandHandler("start", start))
     application.dispatcher.add_handler(CommandHandler("help", help_command))
